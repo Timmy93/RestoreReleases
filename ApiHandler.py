@@ -77,12 +77,6 @@ class ApiHandler:
 		cloneToRestore = self.toRestore.copy()
 		#Iterate over all account
 		for account in cloneToRestore:
-			
-			# ~ #Control only 1 account
-			# ~ if not (account == "iceupload-222@yahoo.it"):
-				# ~ print("Skip: "+account)
-				# ~ continue
-			
 			now = len(self.toRestore[account])
 			print("START: Account: "+account+" - To check "+str(now)+" releases")
 			#Create initial copy and iterate over it
@@ -104,7 +98,7 @@ class ApiHandler:
 						break
 					elif self.res["RESTORING"]:
 						print("Restoring: "+str(code))
-						self.logging.info('Restore succesfully request of: '+str(code))
+						self.logging.info('Restore request succesful: '+str(code))
 						self.removeObject(account, code)
 					elif resp == self.res["ALREADY_REQ"]:
 						print("Already requested: "+str(code))
